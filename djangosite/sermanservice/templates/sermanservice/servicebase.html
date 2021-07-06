@@ -1,0 +1,60 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+{% block topmenu %}
+
+  <div class="container" style=" background-color: rgba(0,0,255,.1)">
+    <div class="row row-cols-auto">
+      {% for param in topmenu %}
+      {% if param.pk == activep %}
+      <div class="col" style="background-color: rgba(0,100,255,.1)>
+        <a href="{{ param.get_absolute_url }}">{{ param.title }}</a>
+      </div>
+      {% else %}
+      <div class="col" style=" background-color: rgba(100,0,255,.1)">
+        <a href="{{ param.get_absolute_url }}">{{ param.title }}</a>
+      </div>
+      {% endif %}
+      {% endfor%}
+    </div>
+  </div>
+
+  <div class="container" style="background-color: rgba(0,0,255,.1)">
+    <div class="row row-cols-auto">
+      {% for subpar in submenu %}
+      {% if subpar.top_id == activep %}
+        {% if subpar.pk == activesub %}
+          <div class="col" style="background-color: rgba(0,100,255,.1)">
+        {% else %}
+          <div class="col" style="background-color: rgba(100,0,255,.1)">
+        {% endif %}
+
+          <!-- <a href="{{ subpar.get_absolute_url }}">{{ subpar.title }}</a> -->
+
+          <a href="{% url 'sub_menu' subpar.pk %}">{{ subpar.title }}</a>
+        </div>
+      {% endif %}
+      {% endfor%}
+    </div>
+  </div>
+
+{% endblock topmenu %}
+
+
+{% block content %}
+  <h1> {{ activep  }}//{{ activesub  }}</h1>
+{% endblock content %}
+
+</body>
+</html>
