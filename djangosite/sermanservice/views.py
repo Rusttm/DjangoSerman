@@ -86,9 +86,22 @@ def form_view(request):
     }
     return render(request, "sermanservice/my_form.html", context)
 
-class get_report(LoginRequiredMixin, DataMixin, CreateView):
-    form_class = ReportForm2
-    template_name = 'sermanservice/index.html'
-    success_url = reverse_lazy('form_page')
-    login_url = reverse_lazy('form_page')
-    raise_exception = True
+
+def pars_form_view(request):
+    form = ParsingForm(request.POST or None)
+    comment = 'Nothing'
+    answer_type_report = 'Nothing'
+    if form.is_valid():
+        answer = request.POST
+        t = run_reports.pars_forming(answer).report_data()
+        #report_type = answer['type_report']
+        print(t)
+        #form = ReportForm()
+        comment = t
+        pass
+    context = {
+        'form': form,
+        'comment': comment
+    }
+    return render(request, "sermanservice/my_parsing_form.html", context)
+

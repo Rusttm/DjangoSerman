@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', form_view, name='home'),
     path('service/', include('sermanservice.urls')),
+    path('pars/', pars_form_view, name='pars_form_page'),
 ]

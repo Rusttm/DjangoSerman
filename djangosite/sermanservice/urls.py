@@ -5,6 +5,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', home_view, name='home_page'),
     path('form/', form_view, name='form_page'),
+    path('pars/', pars_form_view, name='pars_form_page'),
     # path('form2/', get_report.as_view(), name='form_page2'),
     # path('register/', RegisterUser.as_view(), name='register'),
     # path('login/', login_view, name='login2'),
