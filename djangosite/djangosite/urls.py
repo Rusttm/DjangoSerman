@@ -19,6 +19,6 @@ from sermanservice.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name='home'),
+    path('', form_view, name='home'),
     path('service/', include('sermanservice.urls')),
 ]
