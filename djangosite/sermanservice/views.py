@@ -9,7 +9,7 @@ from .forms import  *
 from .utils import  *
 import sys
 #sys.path.insert(0, '/home/rusttm/Desktop/moisklad/MoiSklad')
-sys.path.insert(0, '/home/rusttm/Desktop/moisklad/MoiSklad')
+sys.path.insert(0, '/home/pi/Desktop/moisklad/MoiSklad')
 import run_reports
 
 
