@@ -83,24 +83,26 @@ WSGI_APPLICATION = 'djangosite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
-
 DATABASES = {
-	'default': {
-	'ENGINE': conf['DATABASES']['ENGINE'],
-	'NAME': conf['DATABASES']['NAME'],
-	'USER': conf['DATABASES']['USER'],
-	'PASSWORD': conf['DATABASES']['PASSWORD'],
-	'HOST': conf['DATABASES']['HOST'],
-	'PORT': conf['DATABASES']['PORT'],
-	}
-	}
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
+
+
+
+#
+# DATABASES = {
+# 	'default': {
+# 	'ENGINE': conf['DATABASES']['ENGINE'],
+# 	'NAME': conf['DATABASES']['NAME'],
+# 	'USER': conf['DATABASES']['USER'],
+# 	'PASSWORD': conf['DATABASES']['PASSWORD'],
+# 	'HOST': conf['DATABASES']['HOST'],
+# 	'PORT': conf['DATABASES']['PORT'],
+# 	}
+# 	}
 
 
 
