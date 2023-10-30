@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parsing with Serman</title>
+
+</head>
+<body>
+
+  {% if user.is_authenticated %}
+       <li>User: {{ user.get_username }}</li>
+       <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+
+
+    {% block content %}
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p}}
+      <input type="submit" value="Go"/>
+    </form>
+    <a target="_blank" rel="noopener noreferrer" href="{{ comment.tag }}">{{ comment.result }}</a>
+
+
+
+
+    {% endblock content %}
+  {% else %}
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+
+  {% endif %}
+
+    <p><a href="{% url 'form_page' %}">Return to report page?</a></p>
+
+</body>
+</html>
